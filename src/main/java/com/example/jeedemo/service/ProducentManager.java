@@ -25,7 +25,8 @@ public class ProducentManager {
 	
 	public void deleteProducent(Producent producent){
 		producent = em.find(Producent.class, producent.getId());
-		em.remove(producent);
+		producent.setDeleted(true);
+		//em.remove(producent);
 	}
 	
 	public void edytujProducent(Producent producent){

@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 
 @Entity
-@NamedQuery(name = "wlasciciel.getAll", query="SELECT w FROM Wlasciciel w")
+@NamedQuery(name = "wlasciciel.getAll", query="SELECT w FROM Wlasciciel w where w.deleted=false")
 public class Wlasciciel {
 	
 	@Id
@@ -15,7 +15,14 @@ public class Wlasciciel {
 	private Long id;
 	private String imie;
 	private String nazwisko;
+	private boolean deleted = false;
 	
+	public boolean isDeleted() {
+		return deleted;
+	}
+	public void setDeleted(boolean deleted) {
+		this.deleted = deleted;
+	}
 	public Long getId() {
 		return id;
 	}

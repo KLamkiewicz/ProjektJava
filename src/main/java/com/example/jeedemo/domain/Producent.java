@@ -7,14 +7,23 @@ import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 
 @Entity
-@NamedQuery(name ="producent.getProducenci" , query = "Select p FROM Producent p ")
+@NamedQuery(name ="producent.getProducenci" , query = "Select p FROM Producent p where p.deleted = false ")
 public class Producent {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nazwa;
+	private boolean deleted = false;
 	
+	public boolean isDeleted() {
+		return deleted;
+	}
+
+	public void setDeleted(boolean deleted) {
+		this.deleted = deleted;
+	}
+
 	public Long getId() {
 		return id;
 	}

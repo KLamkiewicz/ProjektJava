@@ -29,7 +29,8 @@ public class WlascicielManager {
 	
 	public void deleteWlasciciel(Wlasciciel wlasciciel){
 		wlasciciel = em.find(Wlasciciel.class, wlasciciel.getId());
-		em.remove(wlasciciel);	
+		wlasciciel.setDeleted(true);
+		//em.remove(wlasciciel);	
 	}
 	
 	public void edytujWlasciciel(Wlasciciel wlasciciel){
